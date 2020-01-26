@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <title>ES6 and Beyond</title>
+    <link rel="stylesheet" type="text/css" href="talk.css" />
+  </head>
+  <body>
+    <header>
+      <h1>ES6 and Beyond</h1>
+      <h2>Modern JavaScript FTW</h2>
+    </header>
+    <main>
+      <article class="active">
+        <h2><code>let</code> versus <code>var</code></h2>
+        <div class="example old active">
+          <h3><code>var</code> is quicksand</h3>
+          <pre>
+var cat = 'louis';
+var i;
+
+for (i = 1; (i &lt;= 10); i++) {
+  var cat = 'loopy cat #' + i;
+  console.log(cat);
+}
+console.log(cat); // cat #10, not louis!
+          </pre>
+          <button name="run">Run Me!</button>
+          <button name="new">Fix Me!</button>
+        </div>
+        <div class="example new inactive">
+          <h3><code>let</code>: so scope-y fresh</h3>
+          <pre>
+let cat = 'louis';
+
+for (let i = 1; (i &lt;= 10); i++) {
+  let cat = 'cat #' + i;
+  console.log(cat);
+}
+console.log(cat); // louis the cat came back!
+          </pre>
+          <button name="run">Run Me!</button>
+          <button name="old">Break Me!</button>
+        </div>
+        <button name="next">Next</button>
+      </article>
+      <article class="inactive">
+        <h2><code>const</code> makes you think</h2>
+        <div class="example old active">
+          <h3>Sloppy sloppy slop</h3>
+          <pre>
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+  pet() {
+    console.log(this.name + ' purrs.');
+  }
+}
+
+let cat;
+
+cat = new Cat('Louis');
+cat.pet();
+
+cat = new Cat('SpySpy');
+// I have to read the previous line
+// to know which cat this refers to
+cat.pet();
+
+// More than one Louis? Surely you jest!
+cat = new Cat('Louis');
+          </pre>
+          <button name="run">Run Me!</button>
+          <button name="new">Fix Me!</button>
+        </div>
+        <div class="example new inactive">
+          <h3><code>const</code>: clear &amp; safe</h3>
+          <pre>
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+  pet() {
+    console.log(this.name + ' purrs.');
+  }
+}
+
+const louis = new Cat('Louis');
+louis.pet();
+
+const spyspy = new Cat('SpySpy');
+// I know which cat this is right away
+spyspy.pet();
+
+// This will fail
+const louis = new Cat('Louis');
+          </pre>
+          <button name="run">Run Me!</button>
+          <button name="old">Break Me!</button>
+        </div>
+        <button name="next">Next</button>
+      </article>
+      <article class="inactive">
+        <h2><code>...</code>: give it a rest!</h2>
+        <div class="example old active">
+          <h3><code>arguments</code>: mmm, crunchy boilerplate</h3>
+          <pre>
+function send(recipient, message /* , message2, message3... */) {
+  var messages = Array.prototype.slice.call(arguments, 1);
+  console.log(recipient + ', you have the following messages: ' +
+    messages.join(', ')
+  );
+}
+
+send('Louis', 'meow', 'screech', 'purr');
+          </pre>
+          <button name="run">Run Me!</button>
+          <button name="new">Fix Me!</button>
+        </div>
+        <div class="example new inactive">
+          <h3>ellipsis is awesome</h3>
+          <pre>
+function send(recipient, ...messages) {
+  console.log(recipient + ', you have the following messages: ' +
+    messages.join(', ')
+  );
+}
+
+send('Louis', 'meow', 'screech', 'purr');
+          </pre>
+          <button name="run">Run Me!</button>
+          <button name="old">Break Me!</button>
+        </div>
+        <button name="previous">Previous</button>
+        <button name="next">Next</button>
+      </article>
+      <article class="inactive">
+        <h2><code>...</code>: give it a rest!</h2>
+        <div class="example old active">
+          <h3><code>arguments</code>: mmm, crunchy boilerplate</h3>
+          <pre>
+function send(recipient, message /* , message2, message3... */) {
+  var messages = Array.prototype.slice.call(arguments, 1);
+  console.log(recipient + ', you have the following messages: ' +
+    messages.join(', ')
+  );
+}
+
+send('Louis', 'meow', 'screech', 'purr');
+          </pre>
+          <button name="run">Run Me!</button>
+          <button name="new">Fix Me!</button>
+        </div>
+        <div class="example new inactive">
+          <h3>ellipsis is awesome</h3>
+          <pre>
+function send(recipient, ...messages) {
+  console.log(recipient + ', you have the following messages: ' +
+    messages.join(', ')
+  );
+}
+
+send('Louis', 'meow', 'screech', 'purr');
+          </pre>
+          <button name="run">Run Me!</button>
+          <button name="old">Break Me!</button>
+        </div>
+        <button name="previous">Previous</button>
+        <button name="next">Next</button>
+      </article>
+      <article class="inactive">
+        <h2><code>`</code>: template strings are beautiful</h2>
+        <div class="example old active">
+          <h3><code>blah + blech + more + blah</code>: quit typing ticks</h3>
+          <pre>
+function send(recipient, ...messages) {
+  const joined = messages.join(', ');
+  console.log(recipient + ', you have the following messages: ' + joined);
+}
+
+send('Louis', 'meow', 'screech', 'purr');
+          </pre>
+          <button name="run">Run Me!</button>
+          <button name="new">Fix Me!</button>
+        </div>
+        <div class="example new inactive">
+          <h3><code>I ${love} backticks</h3>
+          <pre>
+function send(recipient, ...messages) {
+  const joined = messages.join(', ');
+  console.log(`${recipient}, you have the following messages: ${joined}`);
+}
+
+send('Louis', 'meow', 'screech', 'purr');
+          </pre>
+          <button name="run">Run Me!</button>
+          <button name="old">Break Me!</button>
+        </div>
+      </article>
+      <!-- TODO: multiline -->
+      <!-- TODO: tagged template literals -->
+    </main>
+    <footer>
+      <h4 class="speaker">Thomas Boutell</h4>
+      <h4 class="firm"><a href="https://apostrophecms.com">ApostropheCMS</a></h4>
+    </footer>
+    <script src="talk.js"></script>
+  </body>
+</html>

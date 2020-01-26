@@ -1,0 +1,20 @@
+body {
+  font-size: 200%;
+}
+
+article {
+  display: none;
+}
+
+.example {
+  display: none;
+}
+
+article.active, .example.active {
+  display: block;
+}
+
+.inactive {
+  display: none; 
+}
+
