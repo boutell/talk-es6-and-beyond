@@ -18,3 +18,7 @@ article.active, .example.active {
   display: none; 
 }
 
+.boring {
+  display: none;
+}
+

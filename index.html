@@ -47,7 +47,7 @@ console.log(cat); // louis the cat came back!
         <h2><code>const</code> makes you think</h2>
         <div class="example old active">
           <h3>Sloppy sloppy slop</h3>
-          <pre>
+          <pre class="boring">
 class Cat {
   constructor(name) {
     this.name = name;
@@ -56,7 +56,8 @@ class Cat {
     console.log(this.name + ' purrs.');
   }
 }
-
+          </pre>
+          <pre>
 let cat;
 
 cat = new Cat('Louis');
@@ -75,6 +76,16 @@ cat = new Cat('Louis');
         </div>
         <div class="example new inactive">
           <h3><code>const</code>: clear &amp; safe</h3>
+          <pre class="boring">
+class Cat {
+  constructor(name) {
+    this.name = name;
+  }
+  pet() {
+    console.log(this.name + ' purrs.');
+  }
+}
+          </pre>
           <pre>
 class Cat {
   constructor(name) {

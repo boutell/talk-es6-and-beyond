@@ -11,7 +11,12 @@ document.body.addEventListener('click', (e) => {
     display = document.createElement('pre');
     display.classList.add('output');
     example.appendChild(display);
-    const code = example.querySelector('pre').childNodes[0].nodeValue;
+    let code = '';
+    const boring = example.querySelector('pre.boring');
+    if (boring) {
+      code += boring.childNodes[0].nodeValue;
+    }
+    code += example.querySelector('pre').childNodes[0].nodeValue;
     const wrappedCode = `
       (function() {
         const realConsole = console;
