@@ -1,9 +1,139 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
 body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+i {
+  font-style: italic;
+}
+b {
+  font-weight: bold;
+}
+
+*
+{
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+  margin: 0;
+}
+
+.clearfix
+{
+  zoom: 1;
+  &:before { content: ''; display: block; }
+  &:after { content: ''; display: table; clear: both; }
+}
+
+body {
+  font-size: 30px;
+  font-family: Helvetica;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1em;
+}
+
+h1 {
   font-size: 200%;
+}
+
+h2 {
+  font-size: 150%;
+}
+
+h3 {
+  font-size: 125%;
+}
+
+header {
+  background-color: black;
+  color: white;
+  position: fixed;
+  top: 0px;
+  height: 6em;
+  padding: 2em 0 2em;
+  text-align: center;
+  font-size: 75%;
+  width: 100%;
+  border-bottom: 2px solid #ddd;
+}
+
+footer {
+  background-color: black;
+  color: white;
+  position: fixed;
+  bottom: 0px;
+  height: 2em;
+  padding: 2em 2em;
+  font-size: 75%;
+  width: 100%;
+  border-top: 2px solid #ddd;
+}
+
+footer a {
+  color: #bbf;
+}
+
+
+.firm {
+  float: right;
+}
+
+main {
+  margin: 6em 4em 6em;
+  line-height: 1.25em;
+  width: 100%;
+}
+
+code, pre {
+  font-family: Courier;
 }
 
 article {
   display: none;
+  width: 100%;
 }
 
 .example {
@@ -22,3 +152,36 @@ article.active, .example.active {
   display: none;
 }
 
+a {
+  color: blue;
+  text-decoration: none;
+}
+
+button {
+  padding: 0.25em 0.5em 0.4em;
+  font-size: 100%;
+  color: #fff;
+  background-color: #a22;
+  border: 2px solid #eef;
+  border-radius: 2px;
+}
+
+article:first-of-type button[name="first"], article:first-of-type button[name="previous"] {
+  display: none;
+}
+
+article:last-of-type button[name="last"], article:last-of-type button[name="next"] {
+  display: none;
+}
+
+nav {
+  display: block;
+  position: fixed;
+  bottom: 4em;
+  right: 1.5em;
+}
+
+.example nav {
+  right: auto;
+  left: 1.5em;
+}
