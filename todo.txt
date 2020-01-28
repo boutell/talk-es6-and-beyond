@@ -1,0 +1,25 @@
+Implementation:
+
+* Welcome and thank-you articles
+* Consider flattening the hierarchy, removing strict old/new thing
+* Bring back "Less" button
+* Consider internal scrollbar for main
+
+Topics:
+
+* const does not freeze objects, only referneces
+* tail recursion (and the pun)
+* show arrow functions with bodies
+* arrow functions and "this" and how and when it helps
+* multiline template literals
+* tagged template literals
+* ES6 imports
+
+index.html:      <!-- TODO const does not freeze objects, only references -->
+index.html:      <!-- TODO: tail recursion (and the pun) -->
+index.html:      <!-- TODO: arrow functions with bodies -->
+index.html:      <!-- TODO: arrow functions and "this" and how and when it helps -->
+index.html:      <!-- TODO: multiline -->
+index.html:      <!-- TODO: tagged template literals -->
+index.html:      <!-- TODO: ES6 imports -->
+
