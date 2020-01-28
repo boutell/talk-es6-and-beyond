@@ -72,7 +72,11 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
+}
+
+pre {
+  margin-top: 1em;
 }
 
 h1 {
@@ -106,7 +110,7 @@ footer {
   position: fixed;
   bottom: 0px;
   height: 2em;
-  padding: 2em 2em;
+  padding: 1.6em 6px 2.4em;
   font-size: 75%;
   width: 100%;
   border-top: 2px solid #ddd;
@@ -122,9 +126,11 @@ footer a {
 }
 
 main {
-  margin: 6em 4em 6em;
+  margin: auto;
+  margin-top: 6em;
+  margin-bottom: 6em;
   line-height: 1.25em;
-  width: 100%;
+  max-width: 1440px;
 }
 
 code, pre {
@@ -152,6 +158,22 @@ article.active, .example.active {
   display: none;
 }
 
+.example [name="less"] {
+  display: none;
+}
+
+.example.more .boring {
+  display: block;
+}
+
+.example.more [name="more"] {
+  display: none;
+}
+
+.example.less [name="less"] {
+  display: inline;
+}
+
 a {
   color: blue;
   text-decoration: none;
@@ -160,10 +182,9 @@ a {
 button {
   padding: 0.25em 0.5em 0.4em;
   font-size: 100%;
-  color: #fff;
-  background-color: #a22;
-  border: 2px solid #eef;
-  border-radius: 2px;
+  color: white;
+  background-color: black;
+  border: none;
 }
 
 article:first-of-type button[name="first"], article:first-of-type button[name="previous"] {
@@ -177,11 +198,11 @@ article:last-of-type button[name="last"], article:last-of-type button[name="next
 nav {
   display: block;
   position: fixed;
-  bottom: 4em;
-  right: 1.5em;
+  bottom: calc(3em + 4px);
+  right: 0;
 }
 
 .example nav {
   right: auto;
-  left: 1.5em;
+  left: 0;
 }

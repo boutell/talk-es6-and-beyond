@@ -8,6 +8,7 @@ for (article of articles) {
       <button name="new">Upgrade!</button>
     </nav>
   `;
+  boring(old);
   const n = article.querySelector('.new');
   n.innerHTML += `
     <nav>
@@ -15,6 +16,7 @@ for (article of articles) {
       <button name="old">Downgrade</button>
     </nav>
   `;
+  boring(n);
   article.innerHTML += `
     <nav>
       <button name="first">First</button>
@@ -25,11 +27,22 @@ for (article of articles) {
   `;
 }
 
+function boring(el) {
+  const boring = el.querySelector('.boring');
+  if (boring) {
+    el.querySelector('nav').innerHTML += `
+      <button name="more">More</button>
+      <button name="less">Less</button>
+    `;
+  }
+}
+
 document.body.addEventListener('click', (e) => {
 
   const article = e.target.closest('article');
+  const name = e.target.getAttribute('name');
 
-  if (e.target.getAttribute('name') === 'run') {
+  if (name === 'run') {
     const example = e.target.closest('.example');
     let display = example.querySelector('.output');
     if (display) {
@@ -71,21 +84,21 @@ document.body.addEventListener('click', (e) => {
     }
   }
 
-  if (e.target.getAttribute('name') === 'new') {
+  if (name === 'new') {
     article.querySelector('.new').classList.remove('inactive');
     article.querySelector('.old').classList.remove('active');
     article.querySelector('.new').classList.add('active');
     article.querySelector('.old').classList.add('inactive');
   }
 
-  if (e.target.getAttribute('name') === 'old') {
+  if (name === 'old') {
     article.querySelector('.old').classList.remove('inactive');
     article.querySelector('.new').classList.remove('active');
     article.querySelector('.old').classList.add('active');
     article.querySelector('.new').classList.add('inactive');
   }
 
-  if (e.target.getAttribute('name') === 'first') {
+  if (name === 'first') {
     article.classList.remove('active');
     article.classList.add('inactive');
     const next = document.querySelector('article:first-of-type');
@@ -93,7 +106,7 @@ document.body.addEventListener('click', (e) => {
     next.classList.add('active');
   }
 
-  if (e.target.getAttribute('name') === 'previous') {
+  if (name === 'previous') {
     article.classList.remove('active');
     article.classList.add('inactive');
     const previous = article.previousElementSibling;
@@ -101,7 +114,7 @@ document.body.addEventListener('click', (e) => {
     previous.classList.add('active');
   }
 
-  if (e.target.getAttribute('name') === 'next') {
+  if (name === 'next') {
     article.classList.remove('active');
     article.classList.add('inactive');
     const next = article.nextElementSibling;
@@ -109,11 +122,19 @@ document.body.addEventListener('click', (e) => {
     next.classList.add('active');
   }
 
-  if (e.target.getAttribute('name') === 'last') {
+  if (name === 'last') {
     article.classList.remove('active');
     article.classList.add('inactive');
     const next = document.querySelector('article:last-of-type');
     next.classList.remove('inactive');
     next.classList.add('active');
+  }
+
+  if (name === 'more') {
+    event.target.closest('.example').classList.add('more');
+  }
+
+  if (name === 'less') {
+    event.target.closest('.example').classList.remove('more');
   }
 });

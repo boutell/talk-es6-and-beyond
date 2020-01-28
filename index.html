@@ -34,7 +34,8 @@ for (let i = 1; (i &lt;= 10); i++) {
   let cat = 'loopy cat #' + i;
   console.log(cat);
 }
-console.log(cat); // louis the cat came back!
+ // louis the cat came back!
+console.log(cat);
           </pre>
         </div>
       </article>
@@ -171,7 +172,7 @@ api('reverse', { cat: 'Louis' }).then(function(reversed) {
   return api('reverse', { cat: 'SpySpy' });
 }).then(function(reversed) {
   console.log(reversed);
-  return  api('reverse', { cat: 'Sammy' });
+  return api('reverse', { cat: 'Sammy' });
 }).then(function(reversed) {
   console.log(reversed);
 }).catch(function(err) {
@@ -501,7 +502,9 @@ function send(recipient, options, ...messages) {
   }
 }
 
-send('Louis', { style: 'terse' }, 'Felix hissed at you', 'SpySpy hissed at you');
+send('Louis', { style: 'terse' },
+  'Felix hissed at you', 'SpySpy hissed at you'
+);
           </pre>
         </div>
         <div class="example new inactive">
