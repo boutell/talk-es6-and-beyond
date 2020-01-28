@@ -2,21 +2,25 @@ const articles = document.body.querySelectorAll('article');
 
 for (article of articles) {
   const old = article.querySelector('.old');
-  old.innerHTML += `
-    <nav>
-      <button name="run">Run</button>
-      <button name="new">Upgrade!</button>
-    </nav>
-  `;
-  boring(old);
+  if (old) {
+    old.innerHTML += `
+      <nav>
+        <button name="run">Run</button>
+        <button name="new">Upgrade!</button>
+      </nav>
+    `;
+    boring(old);
+  }
   const n = article.querySelector('.new');
-  n.innerHTML += `
-    <nav>
-      <button name="run">Run</button>
-      <button name="old">Downgrade</button>
-    </nav>
-  `;
-  boring(n);
+  if (n) {
+    n.innerHTML += `
+      <nav>
+        <button name="run">Run</button>
+        <button name="old">Downgrade</button>
+      </nav>
+    `;
+    boring(n);
+  }
   article.innerHTML += `
     <nav>
       <button name="first">First</button>
