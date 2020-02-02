@@ -1,26 +1,19 @@
+const examples = document.body.querySelectorAll('.example');
+
+for (example of examples) {
+  if (example) {
+    example.innerHTML += `
+      <nav>
+        <button name="run">Run</button>
+      </nav>
+    `;
+    boring(example);
+  }
+}
+
 const articles = document.body.querySelectorAll('article');
 
 for (article of articles) {
-  const old = article.querySelector('.old');
-  if (old) {
-    old.innerHTML += `
-      <nav>
-        <button name="run">Run</button>
-        <button name="new">Upgrade!</button>
-      </nav>
-    `;
-    boring(old);
-  }
-  const n = article.querySelector('.new');
-  if (n) {
-    n.innerHTML += `
-      <nav>
-        <button name="run">Run</button>
-        <button name="old">Downgrade</button>
-      </nav>
-    `;
-    boring(n);
-  }
   article.innerHTML += `
     <nav>
       <button name="first">First</button>
@@ -86,20 +79,6 @@ document.body.addEventListener('click', (e) => {
     } catch (e) {
       display.innerText += e.toString();
     }
-  }
-
-  if (name === 'new') {
-    article.querySelector('.new').classList.remove('inactive');
-    article.querySelector('.old').classList.remove('active');
-    article.querySelector('.new').classList.add('active');
-    article.querySelector('.old').classList.add('inactive');
-  }
-
-  if (name === 'old') {
-    article.querySelector('.old').classList.remove('inactive');
-    article.querySelector('.new').classList.remove('active');
-    article.querySelector('.old').classList.add('active');
-    article.querySelector('.new').classList.add('inactive');
   }
 
   if (name === 'first') {

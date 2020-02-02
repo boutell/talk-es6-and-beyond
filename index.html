@@ -12,7 +12,7 @@
     <main>
       <article class="active">
         <h2><code>let</code> versus <code>var</code></h2>
-        <div class="example old active">
+        <div class="example old">
           <h3><code>var</code> is quicksand</h3>
           <pre>
 var cat = 'louis';
@@ -25,7 +25,10 @@ for (i = 1; (i &lt;= 10); i++) {
 console.log(cat); // cat #10, not louis!
           </pre>
         </div>
-        <div class="example new inactive">
+      </article>
+      <article class="inactive">
+        <h2><code>let</code> versus <code>var</code></h2>
+        <div class="example new">
           <h3><code>let</code>: so scope-y fresh</h3>
           <pre>
 let cat = 'louis';
@@ -41,7 +44,7 @@ console.log(cat);
       </article>
       <article class="inactive">
         <h2><code>const</code> makes you think</h2>
-        <div class="example old active">
+        <div class="example old">
           <h3>Sloppy reuse of variable</h3>
           <pre class="boring">
 class Cat {
@@ -68,7 +71,10 @@ cat.pet();
 cat = new Cat('Louis');
           </pre>
         </div>
-        <div class="example new inactive">
+      </article>
+      <article class="inactive">
+        <h2><code>const</code> makes you think</h2>
+        <div class="example new">
           <h3><code>const</code>: clear &amp; safe</h3>
           <pre class="boring">
 class Cat {
@@ -96,7 +102,7 @@ const louis = new Cat('Louis');
       <!-- TODO const does not freeze objects, only references -->
       <article class="inactive">
         <h2>ES6 classes: prototypes without pain</h2>
-        <div class="example old active">
+        <div class="example old">
           <h3>The awkward way</h3>
           <pre>
 function Cat(name) {
@@ -111,7 +117,10 @@ const louis = new Cat('Louis');
 louis.pet();
           </pre>
         </div>
-        <div class="example new inactive">
+      </article>
+      <article class="inactive">
+        <h2>ES6 classes: prototypes without pain</h2>
+        <div class="example new">
           <h3>The ES6 and normal programming languages way</h3>
           <pre>
 class Cat {
@@ -130,7 +139,7 @@ louis.pet();
       </article>
       <article class="inactive">
         <h2>Arrow functions: functional programmer candy</h2>
-        <div class="example old active">
+        <div class="example old">
           <h3>The wordy way</h3>
           <pre>
 const cats = [ 'Louis', 'SpySpy' ];
@@ -139,7 +148,10 @@ cats.forEach(function(cat) {
 });
           </pre>
         </div>
-        <div class="example new inactive">
+      </article>
+      <article class="inactive">
+        <h2>Arrow functions: functional programmer candy</h2>
+        <div class="example new">
           <h3>The graceful way</h3>
           <pre>
 const cats = [ 'Louis', 'SpySpy' ];
@@ -149,7 +161,7 @@ cats.forEach(cat =&gt; console.log(`${cat} is a fine cat.`));
       </article>
       <article class="inactive">
         <h2>async/await: write normal-looking code with APIs!</h2>
-        <div class="example old active">
+        <div class="example old">
           <h3>The old way: thinking about promises all day</h3>
           <pre class="boring">
 function api(action, data) {
@@ -181,7 +193,10 @@ api('reverse', { cat: 'Louis' }).then(function(reversed) {
 });
           </pre>
         </div>
-        <div class="example new inactive">
+      </article>
+      <article class="inactive">
+        <h2>async/await: write normal-looking code with APIs!</h2>
+        <div class="example new">
           <h3>The readable way</h3>
           <pre class="boring">
 function api(action, data) {
@@ -210,7 +225,7 @@ go();
       </article>
       <article class="inactive">
         <h2><code>async/await</code>: meet <code>for...</code>of, your new BFF</h2>
-        <div class="example old active">
+        <div class="example old">
           <h3>The old way: smash into that API rate limit!</h3>
           <pre class="boring">
 const rateLimit = 2;
@@ -252,7 +267,10 @@ Promise.all(
 });
           </pre>
         </div>
-        <div class="example new inactive">
+      </article>
+      <article class="inactive">
+        <h2><code>async/await</code>: meet <code>for...</code>of, your new BFF</h2>
+        <div class="example new">
           <h3>One at a time with <code>for...of</code></h3>
           <pre class="boring">
 const rateLimit = 2;
@@ -291,7 +309,7 @@ go();
       </article>
       <article class="inactive">
         <h2>Object literal shorthand: stop typing <code>cat</code> so much</h2>
-        <div class="example old active">
+        <div class="example old">
           <h3>Yo dawg, I heard you liked typing <code>cat</code></h3>
           <pre class="boring">
 const rateLimit = 2;
@@ -323,7 +341,10 @@ async function go() {
 go();
           </pre>
         </div>
-        <div class="example new inactive">
+      </article>
+      <article class="inactive">
+        <h2>Object literal shorthand: stop typing <code>cat</code> so much</h2>
+        <div class="example new">
           <h3>One <code>cat</code> is nice, and will suffice</h3>
           <pre class="boring">
 const rateLimit = 2;
@@ -361,7 +382,7 @@ go();
       <!-- TODO: arrow functions and "this" and how and when it helps -->
       <article class="inactive">
         <h2><code>...</code>: give it a rest!</h2>
-        <div class="example old active">
+        <div class="example old">
           <h3><code>arguments</code>: mmm, crunchy boilerplate</h3>
           <pre>
 function send(recipient, message /* , message2, message3... */) {
@@ -374,7 +395,10 @@ function send(recipient, message /* , message2, message3... */) {
 send('Louis', 'meow', 'screech', 'purr');
           </pre>
         </div>
-        <div class="example new inactive">
+      </article>
+      <article class="inactive">
+        <h2><code>...</code>: give it a rest!</h2>
+        <div class="example new">
           <h3>ellipsis is awesome</h3>
           <pre>
 function send(recipient, ...messages) {
@@ -389,7 +413,7 @@ send('Louis', 'meow', 'screech', 'purr');
       </article>
       <article class="inactive">
         <h2><code>`</code>: template strings are beautiful</h2>
-        <div class="example old active">
+        <div class="example old">
           <h3><code>blah + blech + more + blah</code>: quit typing ticks</h3>
           <pre>
 function send(recipient, ...messages) {
@@ -400,7 +424,10 @@ function send(recipient, ...messages) {
 send('Louis', 'meow', 'screech', 'purr');
           </pre>
         </div>
-        <div class="example new inactive">
+      </article>
+      <article class="inactive">
+        <h2><code>`</code>: template strings are beautiful</h2>
+        <div class="example new">
           <h3>I <code>${love}</code> backticks</h3>
           <pre>
 function send(recipient, ...messages) {
@@ -416,7 +443,7 @@ send('Louis', 'meow', 'screech', 'purr');
       <!-- TODO: tagged template literals -->
       <article class="inactive">
         <h2><code>...</code> returns: the object spread operator</h2>
-        <div class="example old active">
+        <div class="example old">
           <h3>The old way: default properties are a pain</h3>
           <pre>
 function api(data) {
@@ -435,7 +462,10 @@ api({ cat: 'Felix', priority: 0 });
 api({ cat: 'Sammy', priority: 100000 });
           </pre>
         </div>
-        <div class="example new inactive">
+      </article>
+      <article class="inactive">
+        <h2><code>...</code> returns: the object spread operator</h2>
+        <div class="example new">
           <h3><code>...</code> spreads like butter</h3>
           <pre>
 function api(data) {
@@ -457,7 +487,7 @@ api({ cat: 'Sammy', priority: 100000 });
       </article>
       <article class="inactive">
         <h2>"Unspreading:" object literal assignment</h2>
-        <div class="example old active">
+        <div class="example old">
           <h3>The old way: geez I only wanted one thing</h3>
           <pre>
 function getCatInfo() {
@@ -472,7 +502,10 @@ const info = getCatInfo();
 console.log(info.name);
           </pre>
         </div>
-        <div class="example new inactive">
+      </article>
+      <article class="inactive">
+        <h2>"Unspreading:" object literal assignment</h2>
+        <div class="example new">
           <h3>Control yourself, take only what you need from it</h3>
           <pre>
 function getCatInfo() {
@@ -490,7 +523,7 @@ console.log(name);
       </article>
       <article class="inactive">
         <h2>"Unspreading" arguments, aka passing options by name (sort of)</h2>
-        <div class="example old active">
+        <div class="example old">
           <h3>The old way: our beloved options object</h3>
           <pre>
 // Long comment documenting the options usually goes here
@@ -508,7 +541,10 @@ send('Louis', { style: 'terse' },
 );
           </pre>
         </div>
-        <div class="example new inactive">
+      </article>
+      <article class="inactive">
+        <h2>"Unspreading" arguments, aka passing options by name (sort of)</h2>
+        <div class="example new">
           <h3>The new, self-documenting way</h3>
           <pre>
 function send(recipient, { style }, ...messages) {
@@ -525,7 +561,7 @@ send('Louis', { style: 'terse' }, 'Felix hissed at you', 'SpySpy hissed at you')
       </article>
       <article class="inactive">
         <h2>Default values for arguments</h2>
-        <div class="example old active">
+        <div class="example old">
           <h3>The old way: watch out for zero!</h3>
           <pre>
 function speak(message) {
@@ -539,7 +575,10 @@ speak();
 speak('hisssss');
           </pre>
         </div>
-        <div class="example new inactive">
+      </article>
+      <article class="inactive">
+        <h2>Default values for arguments</h2>
+        <div class="example new">
           <h3>The new way: ... just look at it</h3>
           <pre>
 function speak(message = 'miaow') {

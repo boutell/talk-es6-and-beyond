@@ -142,11 +142,7 @@ article {
   width: 100%;
 }
 
-.example {
-  display: none;
-}
-
-article.active, .example.active {
+article.active {
   display: block;
 }
 
@@ -164,6 +160,10 @@ article.active, .example.active {
 
 .example.more .boring {
   display: block;
+}
+
+.example.more [name="less"] {
+  display: inline;
 }
 
 .example.more [name="more"] {
