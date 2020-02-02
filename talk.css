@@ -206,3 +206,12 @@ nav {
   right: auto;
   left: 0;
 }
+
+article.title {
+  text-align: center;
+}
+
+.fill {
+  display: inline-block;
+  height: calc(100vh - 12em);
+}
