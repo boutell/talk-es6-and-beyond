@@ -20,6 +20,7 @@ for (article of articles) {
       <button name="previous">Previous</button>
       <button name="next">Next</button>
       <button name="last">Last</button>
+      <button name="firm">ApostropheCMS</button>
     </nav>
   `;
 }
@@ -119,5 +120,9 @@ document.body.addEventListener('click', (e) => {
 
   if (name === 'less') {
     event.target.closest('.example').classList.remove('more');
+  }
+  
+  if (name === 'firm') {
+    document.location = 'apostrophe.html';
   }
 });

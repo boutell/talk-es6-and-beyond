@@ -195,6 +195,14 @@ article:last-of-type button[name="last"], article:last-of-type button[name="next
   display: none;
 }
 
+article button[name="firm"] {
+  display: none;
+}
+
+article:last-of-type button[name="firm"] {
+  display: inline;
+}
+
 nav {
   display: block;
   position: fixed;
