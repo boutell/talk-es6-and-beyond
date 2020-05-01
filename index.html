@@ -590,6 +590,64 @@ speak('hisssss');
           </pre>
         </div>
       </article>
+
+      <article class="inactive">
+        <h2>Accessing stuff that might not exist</h2>
+        <div class="example old">
+          <h3>The old way: walking on eggshells</h3>
+          <pre>
+const messages = [
+  {
+    speaker: {
+      name: 'Joe Smith',
+      job: {
+        title: 'Dentist'
+      }
+    }
+  },
+  {
+    speaker: {
+      name: 'Jane Doe'
+    }
+  }
+];
+
+for (const message of messages) {
+  console.log(`Job Title: ${message.speaker && message.speaker.job && message.speaker.job.title}`);
+}
+          </pre>
+        </div>
+      </article>
+      <article class="inactive">
+        <h2>Accessing stuff that might not exist</h2>
+        <div class="example old">
+          <h3>The new way: optional chaining</h3>
+          <pre>
+const messages = [
+  {
+    speaker: {
+      name: 'Joe Smith',
+      job: {
+        title: 'Dentist'
+      }
+    }
+  },
+  {
+    speaker: {
+      name: 'Jane Doe'
+    }
+  }
+];
+
+for (const message of messages) {
+  console.log(`Job Title: ${message?.speaker?.job?.title}`);
+}
+          </pre>
+        </div>
+        <p>This one is very new!</p>
+      </article>
+
+
       <article class="title">
         <h2>Thank You</h2>
         <img class="fill" src="louis-the-cat-and-tom.jpg" />
