@@ -160,154 +160,6 @@ cats.forEach(cat =&gt; console.log(`${cat} is a fine cat.`));
         </div>
       </article>
       <article class="inactive">
-        <h2>async/await: write normal-looking code with APIs!</h2>
-        <div class="example old">
-          <h3>The old way: thinking about promises all day</h3>
-          <pre class="boring">
-function api(action, data) {
-  // Asynchronous, like a real API call
-  return new Promise((resolve, reject) =&gt; {
-    setTimeout(() =&gt; {
-      let reversed = '';
-      for (let i = (data.cat.length - 1); (i &gt;= 0); i--) {
-        reversed += data.cat.charAt(i);
-      }
-      resolve(reversed);
-    }, 500);
-  });
-}
-          </pre>
-          <pre>
-// Reversing cats is very hard work,
-// must call special remote API
-api('reverse', { cat: 'Louis' }).then(function(reversed) {
-  console.log(reversed);
-  return api('reverse', { cat: 'SpySpy' });
-}).then(function(reversed) {
-  console.log(reversed);
-  return api('reverse', { cat: 'Sammy' });
-}).then(function(reversed) {
-  console.log(reversed);
-}).catch(function(err) {
-  // Call the vet
-});
-          </pre>
-        </div>
-      </article>
-      <article class="inactive">
-        <h2>async/await: write normal-looking code with APIs!</h2>
-        <div class="example new">
-          <h3>The readable way</h3>
-          <pre class="boring">
-function api(action, data) {
-  // Asynchronous, like a real API call
-  return new Promise((resolve, reject) =&gt; {
-    setTimeout(() =&gt; {
-      let reversed = '';
-      for (let i = (data.cat.length - 1); (i &gt;= 0); i--) {
-        reversed += data.cat.charAt(i);
-      }
-      resolve(reversed);
-    }, 500);
-  });
-}
-          </pre>
-          <pre>
-async function go() {
-  console.log(await api('reverse', { cat: 'Louis' }));
-  console.log(await api('reverse', { cat: 'SpySpy' }));
-  console.log(await api('reverse', { cat: 'Sammy' }));
-}
-
-go();
-          </pre>
-        </div>
-      </article>
-      <article class="inactive">
-        <h2><code>async/await</code>: meet <code>for...</code>of, your new BFF</h2>
-        <div class="example old">
-          <h3>The old way: smash into that API rate limit!</h3>
-          <pre class="boring">
-const rateLimit = 2;
-let pending = 0;
-function api(action, data) {
-  // Asynchronous, like a real API call
-  return new Promise((resolve, reject) =&gt; {
-    if (pending &gt;= rateLimit) {
-      return reject('RATE LIMITED');
-    }
-    pending++;
-    setTimeout(() =&gt; {
-      let reversed = '';
-      for (let i = (data.cat.length - 1); (i &gt;= 0); i--) {
-        reversed += data.cat.charAt(i);
-      }
-      pending--;
-      resolve(reversed);
-    }, 500);
-  });
-}
-          </pre>
-          <pre>
-// works
-const twoCats = [ 'Louis', 'SpySpy' ];
-Promise.all(
-  twoCats.map(cat =&gt; api('reverse', { cat: cat }))
-).then(reversed =&gt; {
-  console.log(reversed);
-  // hits the rate limit
-  const threeCats = [ 'Louis', 'SpySpy', 'Sammy' ];
-  return Promise.all(
-    threeCats.map(cat =&gt; api('reverse', { cat: cat }))
-  );
-}).then(reversed =&gt; {
-  console.log(reversed);
-}).catch(e =&gt; {
-  console.log(`Call the vet! ${e}`);
-});
-          </pre>
-        </div>
-      </article>
-      <article class="inactive">
-        <h2><code>async/await</code>: meet <code>for...</code>of, your new BFF</h2>
-        <div class="example new">
-          <h3>One at a time with <code>for...of</code></h3>
-          <pre class="boring">
-const rateLimit = 2;
-let pending = 0;
-function api(action, data) {
-  // Asynchronous, like a real API call
-  return new Promise((resolve, reject) =&gt; {
-    if (pending &gt;= rateLimit) {
-      return reject('RATE LIMITED');
-    }
-    pending++;
-    setTimeout(() =&gt; {
-      let reversed = '';
-      for (let i = (data.cat.length - 1); (i &gt;= 0); i--) {
-        reversed += data.cat.charAt(i);
-      }
-      pending--;
-      resolve(reversed);
-    }, 500);
-  });
-}
-          </pre>
-          <pre>
-async function go() {
-  const threeCats = [ 'Louis', 'SpySpy', 'Sammy' ];
-  // Note: this trick does not work with forEach
-  for (const cat of threeCats) {
-    // OMG SO... NORMAL
-    console.log(await api('reverse', { cat: cat }));
-  }
-}
-
-go();
-          </pre>
-        </div>
-      </article>
-      <article class="inactive">
         <h2>Object literal shorthand: stop typing <code>cat</code> so much</h2>
         <div class="example old">
           <h3>Yo dawg, I heard you liked typing <code>cat</code></h3>
@@ -710,6 +562,154 @@ console.log('Before: ' + data.join(', '));
 let newData = [ ... new Set(data) ];
 console.log('After: ' + newData.join(', '));
 // Bye-bye lodash (for most use cases)
+          </pre>
+        </div>
+      </article>
+      <article class="inactive">
+        <h2>async/await: write normal-looking code with APIs!</h2>
+        <div class="example old">
+          <h3>The old way: thinking about promises all day</h3>
+          <pre class="boring">
+function api(action, data) {
+  // Asynchronous, like a real API call
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      let reversed = '';
+      for (let i = (data.cat.length - 1); (i &gt;= 0); i--) {
+        reversed += data.cat.charAt(i);
+      }
+      resolve(reversed);
+    }, 500);
+  });
+}
+          </pre>
+          <pre>
+// Reversing cats is very hard work,
+// must call special remote API
+api('reverse', { cat: 'Louis' }).then(function(reversed) {
+  console.log(reversed);
+  return api('reverse', { cat: 'SpySpy' });
+}).then(function(reversed) {
+  console.log(reversed);
+  return api('reverse', { cat: 'Sammy' });
+}).then(function(reversed) {
+  console.log(reversed);
+}).catch(function(err) {
+  // Call the vet
+});
+          </pre>
+        </div>
+      </article>
+      <article class="inactive">
+        <h2>async/await: write normal-looking code with APIs!</h2>
+        <div class="example new">
+          <h3>The readable way</h3>
+          <pre class="boring">
+function api(action, data) {
+  // Asynchronous, like a real API call
+  return new Promise((resolve, reject) =&gt; {
+    setTimeout(() =&gt; {
+      let reversed = '';
+      for (let i = (data.cat.length - 1); (i &gt;= 0); i--) {
+        reversed += data.cat.charAt(i);
+      }
+      resolve(reversed);
+    }, 500);
+  });
+}
+          </pre>
+          <pre>
+async function go() {
+  console.log(await api('reverse', { cat: 'Louis' }));
+  console.log(await api('reverse', { cat: 'SpySpy' }));
+  console.log(await api('reverse', { cat: 'Sammy' }));
+}
+
+go();
+          </pre>
+        </div>
+      </article>
+      <article class="inactive">
+        <h2><code>async/await</code>: meet <code>for...</code>of, your new BFF</h2>
+        <div class="example old">
+          <h3>The old way: smash into that API rate limit!</h3>
+          <pre class="boring">
+const rateLimit = 2;
+let pending = 0;
+function api(action, data) {
+  // Asynchronous, like a real API call
+  return new Promise((resolve, reject) =&gt; {
+    if (pending &gt;= rateLimit) {
+      return reject('RATE LIMITED');
+    }
+    pending++;
+    setTimeout(() =&gt; {
+      let reversed = '';
+      for (let i = (data.cat.length - 1); (i &gt;= 0); i--) {
+        reversed += data.cat.charAt(i);
+      }
+      pending--;
+      resolve(reversed);
+    }, 500);
+  });
+}
+          </pre>
+          <pre>
+// works
+const twoCats = [ 'Louis', 'SpySpy' ];
+Promise.all(
+  twoCats.map(cat =&gt; api('reverse', { cat: cat }))
+).then(reversed =&gt; {
+  console.log(reversed);
+  // hits the rate limit
+  const threeCats = [ 'Louis', 'SpySpy', 'Sammy' ];
+  return Promise.all(
+    threeCats.map(cat =&gt; api('reverse', { cat: cat }))
+  );
+}).then(reversed =&gt; {
+  console.log(reversed);
+}).catch(e =&gt; {
+  console.log(`Call the vet! ${e}`);
+});
+          </pre>
+        </div>
+      </article>
+      <article class="inactive">
+        <h2><code>async/await</code>: meet <code>for...</code>of, your new BFF</h2>
+        <div class="example new">
+          <h3>One at a time with <code>for...of</code></h3>
+          <pre class="boring">
+const rateLimit = 2;
+let pending = 0;
+function api(action, data) {
+  // Asynchronous, like a real API call
+  return new Promise((resolve, reject) =&gt; {
+    if (pending &gt;= rateLimit) {
+      return reject('RATE LIMITED');
+    }
+    pending++;
+    setTimeout(() =&gt; {
+      let reversed = '';
+      for (let i = (data.cat.length - 1); (i &gt;= 0); i--) {
+        reversed += data.cat.charAt(i);
+      }
+      pending--;
+      resolve(reversed);
+    }, 500);
+  });
+}
+          </pre>
+          <pre>
+async function go() {
+  const threeCats = [ 'Louis', 'SpySpy', 'Sammy' ];
+  // Note: this trick does not work with forEach
+  for (const cat of threeCats) {
+    // OMG SO... NORMAL
+    console.log(await api('reverse', { cat: cat }));
+  }
+}
+
+go();
           </pre>
         </div>
       </article>
