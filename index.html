@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en-us">
   <head>
-    <title>ES6 and Beyond</title>
+    <title>What's New in Modern JavaScript</title>
     <link rel="stylesheet" type="text/css" href="talk.css?v2" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
     <header>
-      <h1>ES6 and Beyond</h1>
+      <h1>What's New in Modern JavaScript</h1>
     </header>
     <main>
       <article class="active">
@@ -644,10 +644,43 @@ for (const message of messages) {
 }
           </pre>
         </div>
-        <p>This one is very new!</p>
+        <p>This one is more recent</p>
       </article>
 
+      <article class="inactive">
+        <h2>Iterating over object properties and values</h2>
+        <div class="example old">
+          <h3>The old-ish (IE11) way</h3>
+          <pre>
+const data = {
+  name: 'Louis',
+  handsomeness: '10',
+  orange: true
+};
 
+Object.keys(data).forEach(function(key) {
+  console.log(key + ': ' + data[key]);
+});
+          </pre>
+        </div>
+      </article>
+      <article class="inactive">
+        <h2>Iterating over object properties and values</h2>
+        <div class="example new">
+          <h3>The new way: deconstructed galaxy brain</h3>
+          <pre>
+const data = {
+  name: 'Louis',
+  handsomeness: '10',
+  orange: true
+};
+
+for (const [ key, value ] of Object.entries(data)) {
+  console.log(`${key}: ${value}`);
+}
+          </pre>
+        </div>
+      </article>
       <article class="title">
         <h2>Thank You</h2>
         <img class="fill" src="louis-the-cat-and-tom.jpg" />
