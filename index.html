@@ -94,12 +94,51 @@ const spyspy = new Cat('SpySpy');
 // I know which cat this is right away
 spyspy.pet();
 
-// This will fail
-const louis = new Cat('Louis');
+// ACHTUNG: this will NOT fail
+louis.name = 'Some Other Kitty';
+
+// ... But this will fail
+louis = new Cat('Louis');
           </pre>
         </div>
       </article>
-      <!-- TODO const does not freeze objects, only references -->
+
+
+
+      <article class="inactive">
+        <h2><code>for...of</code> for friendly loops</h2>
+        <div class="example old">
+          <h3>The old way: <code>i</code> am so tired of this</h3>
+          <pre>
+var cats = [ 'Louis', 'SpySpy', 'Pyro' ];
+
+// In the bad old days
+var i;
+for (i = 0; (i < cats.length); i++) {
+  console.log(cats[i]);
+}
+
+// IE11: the functional way is not terrible
+cats.forEach(function(cat) {
+  console.log(cat);
+});
+          </pre>
+        </div>
+      </article>
+      <article class="inactive">
+        <h2><code>for...of</code> for friendly loops</h2>
+        <div class="example new">
+          <h3>The new way: <code>for ... of</code> is friendly and safe</h3>
+          <pre>
+const cats = [ 'Louis', 'SpySpy', 'Pyro' ];
+
+for (const cat of cats) {
+  console.log(cat);
+}
+          </pre>
+        </div>
+      </article>
+
       <article class="inactive">
         <h2>ES6 classes: prototypes without pain</h2>
         <div class="example old">
@@ -464,9 +503,9 @@ const messages = [
   }
 ];
 
-for (const message of messages) {
+messages.forEach(function(message) {
   console.log(`Job Title: ${message.speaker && message.speaker.job && message.speaker.job.title}`);
-}
+});
           </pre>
         </div>
       </article>
