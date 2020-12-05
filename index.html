@@ -652,7 +652,7 @@ for (const message of messages) {
         <div class="example old">
           <h3>The old-ish (IE11) way</h3>
           <pre>
-const data = {
+var data = {
   name: 'Louis',
   handsomeness: '10',
   orange: true
@@ -678,6 +678,38 @@ const data = {
 for (const [ key, value ] of Object.entries(data)) {
   console.log(`${key}: ${value}`);
 }
+          </pre>
+        </div>
+      </article>
+      <article class="inactive">
+        <h2>Keeping only unique values in an array</h2>
+        <div class="example old">
+          <h3>The old, ugly way</h3>
+          <pre>
+var data = [ 'Louis', 'SpySpy', 'Pyro', 'Louis' ];
+console.log('Before: ' + data.join(', '));
+var newData = [];
+// OK in IE11
+data.forEach(function(datum) {
+  if (newData.indexOf(datum) === -1) {
+    newData.push(datum);
+  }
+});
+console.log('After: ' + newData.join(', '));
+// Who am I kidding, you'd probably use lodash
+          </pre>
+        </div>
+      </article>
+      <article class="inactive">
+        <h2>Keeping only unique values in an array</h2>
+        <div class="example new">
+          <h3>The new way: join the jet Set</h3>
+          <pre>
+const data = [ 'Louis', 'SpySpy', 'Pyro', 'Louis' ];
+console.log('Before: ' + data.join(', '));
+let newData = [ ... new Set(data) ];
+console.log('After: ' + newData.join(', '));
+// Bye-bye lodash (for most use cases)
           </pre>
         </div>
       </article>
